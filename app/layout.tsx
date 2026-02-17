@@ -14,8 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "OutageMap",
-  description: "Curated directory of official status pages for major cloud and SaaS services",
+  title: "Outage Map",
+  description:
+    "Curated directory of official status pages for major cloud and SaaS services",
 };
 
 export default function RootLayout({
