@@ -79,14 +79,6 @@ function parseRss(body: unknown): ServiceStatus | null {
       (titleMatch ? titleMatch[1] : "") + (descMatch ? descMatch[1] : "")
     ).toLowerCase();
 
-    // Check for "resolved" or "monitoring" which might still be active incidents but less severe?
-    // Actually, usually if it's in the RSS feed, it's an active or recent incident.
-    // AWS/Azure RSS usually lists recent events. We need to check if they are "active".
-    // For simplicity: if it says "resolved", we might ignore it?
-    // But usually RSS feeds contain history.
-    // Let's refine: AWS RSS title usually: "Service is operating normally: [Region]" or "Informational message: [Service]"
-    // If we simply look for negative keywords in the *latest* items?
-
     if (
       content.includes("resolved") ||
       content.includes("operating normally") ||
@@ -175,9 +167,9 @@ function parseSlack(body: unknown): ServiceStatus | null {
 
   if (status === "ok" && (!incidents || incidents.length === 0))
     return "operational";
-  if (incidents && incidents.length > 0) return "outage"; // Assume outage if incidents exist, or could check types
+  if (incidents && incidents.length > 0) return "outage";
 
-  return "degraded"; // Fallback if status not ok
+  return "degraded"; 
 }
 
 function parseByType(
@@ -206,9 +198,6 @@ function parseByType(
   }
 }
 
-/**
- * Resolve status API URL and type for a service. Uses statusApiUrl/statusApiType when set.
- */
 export function getStatusApiConfig(service: Service): {
   url: string;
   type: StatusApiType;
@@ -226,7 +215,7 @@ export function getStatusApiConfig(service: Service): {
   if (service.statusApiType === "atlassian_summary")
     return { url: `${base}/api/v2/summary.json`, type: "atlassian_summary" };
   if (service.statusApiType === "rss")
-    return { url: service.statusApiUrl!, type: "rss" }; // Should be set in config
+    return { url: service.statusApiUrl!, type: "rss" };
   if (service.statusApiType === "heroku")
     return { url: service.statusApiUrl!, type: "heroku" };
   if (service.statusApiType === "statusio")
@@ -275,7 +264,7 @@ export async function fetchServiceStatus(
       return parseByType(body, apiType);
     } catch {
       clearTimeout(timeout);
-      if (i < RETRIES) continue; // Retry on network error/timeout
+      if (i < RETRIES) continue; 
       return null;
     }
   }

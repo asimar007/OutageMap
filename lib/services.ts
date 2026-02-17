@@ -30,15 +30,15 @@ export type Service = {
   category: ServiceCategory;
   url: string;
   icon: string;
-  /** Optional override for display (unused when using dynamic status). */
+
   status?: Exclude<ServiceStatus, "fetch_failed">;
-  /** Override status API URL when default derivation fails (e.g. Instatus, Google). */
+
   statusApiUrl?: string;
-  /** API format so the fetcher can parse the response. */
+
   statusApiType?: StatusApiType;
 };
 
-/** Unique key for a service (for dynamic status lookup). */
+
 export function getServiceKey(service: Service): string {
   return `${service.name}|${service.category}`;
 }
