@@ -50,6 +50,7 @@ export function useLandingPage() {
       operational: values.filter((v) => v === "operational").length,
       degraded: values.filter((v) => v === "degraded").length,
       outage: values.filter((v) => v === "outage").length,
+      maintenance: values.filter((v) => v === "maintenance").length,
     };
   }, [statusByKey]);
 

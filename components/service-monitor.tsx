@@ -136,7 +136,7 @@ function SummaryCard({
   accent,
 }: {
   label: string;
-  value: number;
+  value: number | undefined;
   accent: string;
 }) {
   return (
@@ -146,9 +146,13 @@ function SummaryCard({
       <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
         {label}
       </p>
-      <p className="mt-2 font-mono text-3xl font-light tabular-nums tracking-tight text-foreground">
-        {value}
-      </p>
+      {value === undefined ? (
+        <Skeleton className="mt-3 h-8 w-12 rounded-md" />
+      ) : (
+        <p className="mt-2 font-mono text-3xl font-light tabular-nums tracking-tight text-foreground">
+          {value}
+        </p>
+      )}
     </div>
   );
 }
@@ -220,25 +224,28 @@ export function LandingPage() {
 
       <main className="mx-auto max-w-6xl px-6 py-10">
         {/* ── Summary Row ── */}
-        {summary && (
-          <div className="mb-10 grid grid-cols-3 gap-4">
-            <SummaryCard
-              label="Operational"
-              value={summary.operational}
-              accent="bg-gradient-to-r from-transparent via-emerald-500/60 to-transparent"
-            />
-            <SummaryCard
-              label="Degraded"
-              value={summary.degraded}
-              accent="bg-gradient-to-r from-transparent via-amber-500/60 to-transparent"
-            />
-            <SummaryCard
-              label="Outages"
-              value={summary.outage}
-              accent="bg-gradient-to-r from-transparent via-red-500/60 to-transparent"
-            />
-          </div>
-        )}
+        <div className="mb-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
+          <SummaryCard
+            label="Operational"
+            value={summary?.operational}
+            accent="bg-gradient-to-r from-transparent via-emerald-500/60 to-transparent"
+          />
+          <SummaryCard
+            label="Degraded"
+            value={summary?.degraded}
+            accent="bg-gradient-to-r from-transparent via-amber-500/60 to-transparent"
+          />
+          <SummaryCard
+            label="Outages"
+            value={summary?.outage}
+            accent="bg-gradient-to-r from-transparent via-red-500/60 to-transparent"
+          />
+          <SummaryCard
+            label="Maintenance"
+            value={summary?.maintenance}
+            accent="bg-gradient-to-r from-transparent via-sky-500/60 to-transparent"
+          />
+        </div>
 
         {/* ── Services Grid ── */}
         <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
