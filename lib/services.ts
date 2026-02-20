@@ -6,6 +6,7 @@ export type ServiceStatus =
   | "fetch_failed";
 
 export type ServiceCategory =
+  | "AI"
   | "Cloud"
   | "Developer Tools"
   | "CDN & DNS"
@@ -44,6 +45,7 @@ export function getServiceKey(service: Service): string {
 }
 
 export const CATEGORIES: ServiceCategory[] = [
+  "AI",
   "Cloud",
   "Developer Tools",
   "CDN & DNS",
@@ -55,6 +57,47 @@ export const CATEGORIES: ServiceCategory[] = [
 ];
 
 export const services: Service[] = [
+  // AI
+  {
+    name: "Claude",
+    category: "AI",
+    url: "https://status.claude.com/",
+    icon: "bot",
+    statusApiUrl: "https://status.claude.com/api/v2/status.json",
+    statusApiType: "statuspage",
+  },
+  {
+    name: "OpenAI",
+    category: "AI",
+    url: "https://status.openai.com/",
+    icon: "bot",
+    statusApiUrl: "https://status.openai.com/api/v2/status.json",
+    statusApiType: "statuspage",
+  },
+  {
+    name: "DeepSeek",
+    category: "AI",
+    url: "https://status.deepseek.com/",
+    icon: "bot",
+    statusApiUrl: "https://status.deepseek.com/api/v2/status.json",
+    statusApiType: "statuspage",
+  },
+  {
+    name: "Perplexity",
+    category: "AI",
+    url: "https://status.perplexity.com/",
+    icon: "bot",
+    statusApiUrl: "https://status.perplexity.com/summary.json",
+    statusApiType: "instatus",
+  },
+  {
+    name: "Groq",
+    category: "AI",
+    url: "https://groqstatus.com/",
+    icon: "bot",
+    statusApiUrl: "https://groqstatus.com/api/v2/status.json",
+    statusApiType: "statuspage",
+  },
   // Cloud
   {
     name: "AWS",
