@@ -58,30 +58,10 @@ export const CATEGORIES: ServiceCategory[] = [
 
 export const services: Service[] = [
   // AI
-  {
-    name: "Claude",
-    category: "AI",
-    url: "https://status.claude.com/",
-    icon: "bot",
-    statusApiUrl: "https://status.claude.com/api/v2/status.json",
-    statusApiType: "statuspage",
-  },
-  {
-    name: "OpenAI",
-    category: "AI",
-    url: "https://status.openai.com/",
-    icon: "bot",
-    statusApiUrl: "https://status.openai.com/api/v2/status.json",
-    statusApiType: "statuspage",
-  },
-  {
-    name: "DeepSeek",
-    category: "AI",
-    url: "https://status.deepseek.com/",
-    icon: "bot",
-    statusApiUrl: "https://status.deepseek.com/api/v2/status.json",
-    statusApiType: "statuspage",
-  },
+  { name: "Claude",    category: "AI", url: "https://status.claude.com/",   icon: "bot" },
+  { name: "OpenAI",    category: "AI", url: "https://status.openai.com/",   icon: "bot" },
+  { name: "DeepSeek",  category: "AI", url: "https://status.deepseek.com/", icon: "bot" },
+  { name: "Groq",      category: "AI", url: "https://groqstatus.com/",       icon: "bot" },
   {
     name: "Perplexity",
     category: "AI",
@@ -89,14 +69,6 @@ export const services: Service[] = [
     icon: "bot",
     statusApiUrl: "https://status.perplexity.com/summary.json",
     statusApiType: "instatus",
-  },
-  {
-    name: "Groq",
-    category: "AI",
-    url: "https://groqstatus.com/",
-    icon: "bot",
-    statusApiUrl: "https://groqstatus.com/api/v2/status.json",
-    statusApiType: "statuspage",
   },
   // Cloud
   {
