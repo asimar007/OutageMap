@@ -1,3 +1,22 @@
+import React from "react";
+import Claude from "@/components/icons/Claude";
+import AWS from "@/components/icons/AWS";
+import ChatGPT from "@/components/icons/GPT";
+import DeepSeek from "@/components/icons/DeepSeek";
+import Docker from "@/components/icons/Docker";
+import Figma from "@/components/icons/Figma";
+import GitHub from "@/components/icons/GitHub";
+import MongoDB from "@/components/icons/MongoDB";
+import Netlify from "@/components/icons/Netlify";
+import { Supabase } from "@/components/icons/Supabase";
+import Vercel from "@/components/icons/Vercel";
+import Perplexity from "@/components/icons/Perplexcity";
+import GoogleCloud from "@/components/icons/GoogleCloud";
+import Azure from "@/components/icons/Azure";
+import DigitalOcean from "@/components/icons/Digital";
+import Render from "@/components/icons/Render";
+import Railway from "@/components/icons/Railway";
+
 export type ServiceStatus =
   | "operational"
   | "degraded"
@@ -30,7 +49,7 @@ export type Service = {
   name: string;
   category: ServiceCategory;
   url: string;
-  icon: string;
+  icon: string | React.ComponentType<React.SVGProps<SVGSVGElement>>;
 
   status?: Exclude<ServiceStatus, "fetch_failed">;
 
@@ -38,7 +57,6 @@ export type Service = {
 
   statusApiType?: StatusApiType;
 };
-
 
 export function getServiceKey(service: Service): string {
   return `${service.name}|${service.category}`;
@@ -58,15 +76,30 @@ export const CATEGORIES: ServiceCategory[] = [
 
 export const services: Service[] = [
   // AI
-  { name: "Claude",    category: "AI", url: "https://status.claude.com/",   icon: "bot" },
-  { name: "OpenAI",    category: "AI", url: "https://status.openai.com/",   icon: "bot" },
-  { name: "DeepSeek",  category: "AI", url: "https://status.deepseek.com/", icon: "bot" },
-  { name: "Groq",      category: "AI", url: "https://groqstatus.com/",       icon: "bot" },
+  {
+    name: "Claude",
+    category: "AI",
+    url: "https://status.claude.com/",
+    icon: Claude,
+  },
+  {
+    name: "OpenAI",
+    category: "AI",
+    url: "https://status.openai.com/",
+    icon: ChatGPT,
+  },
+  {
+    name: "DeepSeek",
+    category: "AI",
+    url: "https://status.deepseek.com/",
+    icon: DeepSeek,
+  },
+  { name: "Groq", category: "AI", url: "https://groqstatus.com/", icon: "bot" },
   {
     name: "Perplexity",
     category: "AI",
     url: "https://status.perplexity.com/",
-    icon: "bot",
+    icon: Perplexity,
     statusApiUrl: "https://status.perplexity.com/summary.json",
     statusApiType: "instatus",
   },
@@ -75,7 +108,7 @@ export const services: Service[] = [
     name: "AWS",
     category: "Cloud",
     url: "https://health.aws.amazon.com/health/status",
-    icon: "cloud",
+    icon: AWS,
     statusApiUrl: "https://status.aws.amazon.com/rss/all.rss",
     statusApiType: "rss",
   },
@@ -83,7 +116,7 @@ export const services: Service[] = [
     name: "Google Cloud",
     category: "Cloud",
     url: "https://status.cloud.google.com/",
-    icon: "cloud",
+    icon: GoogleCloud,
     statusApiUrl: "https://status.cloud.google.com/incidents.json",
     statusApiType: "google",
   },
@@ -91,7 +124,7 @@ export const services: Service[] = [
     name: "Microsoft Azure",
     category: "Cloud",
     url: "https://status.azure.com/",
-    icon: "cloud",
+    icon: Azure,
     statusApiUrl: "https://status.azure.com/en-us/status/feed/",
     statusApiType: "rss",
   },
@@ -99,32 +132,32 @@ export const services: Service[] = [
     name: "DigitalOcean",
     category: "Cloud",
     url: "https://status.digitalocean.com/",
-    icon: "cloud",
+    icon: DigitalOcean,
   },
   {
     name: "Vercel",
     category: "Cloud",
     url: "https://www.vercel-status.com/",
-    icon: "cloud",
+    icon: Vercel,
   },
   {
     name: "Netlify",
     category: "Cloud",
     url: "https://www.netlifystatus.com/",
-    icon: "cloud",
+    icon: Netlify,
   },
 
   {
     name: "Render",
     category: "Cloud",
     url: "https://status.render.com/",
-    icon: "cloud",
+    icon: Render,
   },
   {
     name: "Railway",
     category: "Cloud",
     url: "https://railway.instatus.com/",
-    icon: "cloud",
+    icon: Railway,
     statusApiUrl: "https://railway.instatus.com/summary.json",
     statusApiType: "instatus",
   },
@@ -133,7 +166,7 @@ export const services: Service[] = [
     name: "GitHub",
     category: "Developer Tools",
     url: "https://www.githubstatus.com/",
-    icon: "code",
+    icon: GitHub,
   },
   {
     name: "GitLab",
@@ -159,6 +192,12 @@ export const services: Service[] = [
     icon: "package",
   },
   {
+    name: "Figma",
+    category: "Developer Tools",
+    url: "https://status.figma.com/",
+    icon: Figma,
+  },
+  {
     name: "Heroku",
     category: "Cloud",
     url: "https://status.heroku.com/",
@@ -170,7 +209,7 @@ export const services: Service[] = [
     name: "Docker",
     category: "Developer Tools",
     url: "https://www.dockerstatus.com/",
-    icon: "box",
+    icon: Docker,
     statusApiUrl:
       "https://www.dockerstatus.com/pages/533c6539221ae15e3f000031/rss",
     statusApiType: "rss",
@@ -233,13 +272,13 @@ export const services: Service[] = [
     name: "MongoDB",
     category: "Databases",
     url: "https://status.cloud.mongodb.com/",
-    icon: "database",
+    icon: MongoDB,
   },
   {
     name: "Supabase",
     category: "Databases",
     url: "https://status.supabase.com/",
-    icon: "database",
+    icon: Supabase,
   },
   {
     name: "Firebase",

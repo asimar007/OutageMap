@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { useTheme } from "next-themes";
 import {
   Search,
@@ -48,11 +49,16 @@ const ICON_MAP: Record<string, LucideIcon> = {
 /* ------------------------------------------------------------------ */
 /*  Service Icon                                                       */
 /* ------------------------------------------------------------------ */
-function ServiceIcon({ iconName }: { iconName: string }) {
-  const Icon = ICON_MAP[iconName] ?? Box;
+function ServiceIcon({
+  iconName,
+}: {
+  iconName: string | React.ComponentType<React.SVGProps<SVGSVGElement>>;
+}) {
+  const Icon =
+    typeof iconName === "string" ? (ICON_MAP[iconName] ?? Box) : iconName;
   return (
-    <div className="relative flex size-11 items-center justify-center rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 text-primary/70 ring-1 ring-primary/10 transition-all duration-300 group-hover:from-primary/20 group-hover:to-primary/10 group-hover:text-primary group-hover:ring-primary/25 group-hover:shadow-lg group-hover:shadow-primary/5">
-      <Icon className="size-5" strokeWidth={1.5} />
+    <div className="relative flex size-11 items-center justify-center text-primary/70 transition-all duration-300 group-hover:text-primary">
+      <Icon className="size-10" strokeWidth={1.5} />
     </div>
   );
 }
