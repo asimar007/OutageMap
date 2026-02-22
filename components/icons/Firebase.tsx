@@ -1,7 +1,7 @@
 export default function Firebase() {
   return (
     <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-      <g clip-path="url(#prefix__clip0_9_19)">
+      <g clipPath="url(#prefix__clip0_9_19)">
         <path
           d="M182.543 478.292c19.839 7.985 41.361 12.723 63.959 13.512 30.584 1.069 59.667-5.255 85.667-17.266-31.178-12.25-59.415-30.164-83.514-52.436-15.622 25.011-38.726 44.768-66.112 56.19z"
           fill="#FF9100"

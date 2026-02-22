@@ -10,8 +10,8 @@ export default function Azure() {
           y2="134.423"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#114A8B"></stop>
-          <stop offset="1" stop-color="#0669BC"></stop>
+          <stop stopColor="#114A8B"></stop>
+          <stop offset="1" stopColor="#0669BC"></stop>
         </linearGradient>
         <linearGradient
           id="azure-original-b"
@@ -21,11 +21,11 @@ export default function Azure() {
           y2="71.076"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-opacity=".3"></stop>
-          <stop offset=".071" stop-opacity=".2"></stop>
-          <stop offset=".321" stop-opacity=".1"></stop>
-          <stop offset=".623" stop-opacity=".05"></stop>
-          <stop offset="1" stop-opacity="0"></stop>
+          <stop stopOpacity=".3"></stop>
+          <stop offset=".071" stopOpacity=".2"></stop>
+          <stop offset=".321" stopOpacity=".1"></stop>
+          <stop offset=".623" stopOpacity=".05"></stop>
+          <stop offset="1" stopOpacity="0"></stop>
         </linearGradient>
         <linearGradient
           id="azure-original-c"
@@ -35,8 +35,8 @@ export default function Azure() {
           y2="129.525"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#3CCBF4"></stop>
-          <stop offset="1" stop-color="#2892DF"></stop>
+          <stop stopColor="#3CCBF4"></stop>
+          <stop offset="1" stopColor="#2892DF"></stop>
         </linearGradient>
       </defs>
       <path
