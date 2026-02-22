@@ -8,7 +8,7 @@ import Figma from "@/components/icons/Figma";
 import GitHub from "@/components/icons/GitHub";
 import MongoDB from "@/components/icons/MongoDB";
 import Netlify from "@/components/icons/Netlify";
-import { Supabase } from "@/components/icons/Supabase";
+import Supabase from "@/components/icons/Supabase";
 import Vercel from "@/components/icons/Vercel";
 import Perplexity from "@/components/icons/Perplexcity";
 import GoogleCloud from "@/components/icons/GoogleCloud";
@@ -16,6 +16,24 @@ import Azure from "@/components/icons/Azure";
 import DigitalOcean from "@/components/icons/Digital";
 import Render from "@/components/icons/Render";
 import Railway from "@/components/icons/Railway";
+import Gitlab from "@/components/icons/Gitlab";
+import Bitbucket from "@/components/icons/Bitbucket";
+import Npm from "@/components/icons/Npm";
+import Heroku from "@/components/icons/Heroku";
+import Cloudflare from "@/components/icons/Cloudflare";
+import Cloudinary from "@/components/icons/Cloudinary";
+import Slack from "@/components/icons/Slack";
+import Discord from "@/components/icons/Discord";
+import Zoom from "@/components/icons/Zoom";
+import Twilio from "@/components/icons/Twilio";
+import CircleCI from "@/components/icons/CircleCI";
+import Firebase from "@/components/icons/Firebase";
+import PlanetScale from "@/components/icons/PlanetScale";
+import SendGrid from "@/components/icons/SendGrid";
+import Mailgun from "@/components/icons/Mailgun";
+import Datadog from "@/components/icons/Datadog";
+import Sentry from "@/components/icons/Sentry";
+import Groq from "@/components/icons/Groq";
 
 export type ServiceStatus =
   | "operational"
@@ -94,7 +112,7 @@ export const services: Service[] = [
     url: "https://status.deepseek.com/",
     icon: DeepSeek,
   },
-  { name: "Groq", category: "AI", url: "https://groqstatus.com/", icon: "bot" },
+  { name: "Groq", category: "AI", url: "https://groqstatus.com/", icon: Groq },
   {
     name: "Perplexity",
     category: "AI",
@@ -172,7 +190,7 @@ export const services: Service[] = [
     name: "GitLab",
     category: "Developer Tools",
     url: "https://status.gitlab.com/",
-    icon: "code",
+    icon: Gitlab,
     statusApiUrl:
       "https://status.gitlab.com/1.0/status/5b36dc6502d06804c08349f7",
     statusApiType: "statusio",
@@ -181,7 +199,7 @@ export const services: Service[] = [
     name: "Bitbucket",
     category: "Developer Tools",
     url: "https://bitbucket.status.atlassian.com/",
-    icon: "code",
+    icon: Bitbucket,
     statusApiUrl: "https://bitbucket.status.atlassian.com/api/v2/summary.json",
     statusApiType: "atlassian_summary",
   },
@@ -189,7 +207,7 @@ export const services: Service[] = [
     name: "NPM",
     category: "Developer Tools",
     url: "https://status.npmjs.org/",
-    icon: "package",
+    icon: Npm,
   },
   {
     name: "Figma",
@@ -201,7 +219,7 @@ export const services: Service[] = [
     name: "Heroku",
     category: "Cloud",
     url: "https://status.heroku.com/",
-    icon: "cloud",
+    icon: Heroku,
     statusApiUrl: "https://status.heroku.com/api/v4/current-status",
     statusApiType: "heroku",
   },
@@ -219,20 +237,20 @@ export const services: Service[] = [
     name: "Cloudflare",
     category: "CDN & DNS",
     url: "https://www.cloudflarestatus.com/",
-    icon: "globe",
+    icon: Cloudflare,
   },
   {
     name: "Cloudinary",
     category: "CDN & DNS",
     url: "https://status.cloudinary.com/",
-    icon: "globe",
+    icon: Cloudinary,
   },
   // Communication
   {
     name: "Slack",
     category: "Communication",
     url: "https://status.slack.com/",
-    icon: "message-circle",
+    icon: Slack,
     statusApiUrl: "https://slack-status.com/api/v2.0.0/current",
     statusApiType: "slack",
   },
@@ -240,32 +258,26 @@ export const services: Service[] = [
     name: "Discord",
     category: "Communication",
     url: "https://discordstatus.com/",
-    icon: "message-circle",
+    icon: Discord,
   },
   {
     name: "Zoom",
     category: "Communication",
     url: "https://status.zoom.us/",
-    icon: "video",
+    icon: Zoom,
   },
   {
     name: "Twilio",
     category: "Communication",
     url: "https://status.twilio.com/",
-    icon: "phone",
+    icon: Twilio,
   },
   // CI/CD
   {
     name: "CircleCI",
     category: "CI/CD",
     url: "https://status.circleci.com/",
-    icon: "workflow",
-  },
-  {
-    name: "GitHub Actions",
-    category: "CI/CD",
-    url: "https://www.githubstatus.com/",
-    icon: "workflow",
+    icon: CircleCI,
   },
   // Databases
   {
@@ -284,7 +296,7 @@ export const services: Service[] = [
     name: "Firebase",
     category: "Databases",
     url: "https://status.firebase.google.com/",
-    icon: "database",
+    icon: Firebase,
     statusApiUrl: "https://status.firebase.google.com/incidents.json",
     statusApiType: "google",
   },
@@ -292,32 +304,32 @@ export const services: Service[] = [
     name: "PlanetScale",
     category: "Databases",
     url: "https://www.planetscalestatus.com/",
-    icon: "database",
+    icon: PlanetScale,
   },
   // Email
   {
     name: "SendGrid",
     category: "Email",
     url: "https://status.sendgrid.com/",
-    icon: "mail",
+    icon: SendGrid,
   },
   {
     name: "Mailgun",
     category: "Email",
     url: "https://status.mailgun.com/",
-    icon: "mail",
+    icon: Mailgun,
   },
   // Analytics
   {
     name: "Datadog",
     category: "Analytics",
     url: "https://status.datadoghq.com/",
-    icon: "bar-chart-2",
+    icon: Datadog,
   },
   {
     name: "Sentry",
     category: "Analytics",
     url: "https://status.sentry.io/",
-    icon: "bar-chart-2",
+    icon: Sentry,
   },
 ];

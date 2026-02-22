@@ -1,45 +1,47 @@
-import type { SVGProps } from "react";
-
-const Supabase = (props: SVGProps<SVGSVGElement>) => (
-  <svg {...props} viewBox="0 0 128 128" fill="none">
-    <path
-      d="M63.7076 110.284C60.8481 113.885 55.0502 111.912 54.9813 107.314L53.9738 40.0627L99.1935 40.0627C107.384 40.0627 111.952 49.5228 106.859 55.9374L63.7076 110.284Z"
-      fill="url(#supabase__paint0_linear)"
-    />
-    <path
-      d="M63.7076 110.284C60.8481 113.885 55.0502 111.912 54.9813 107.314L53.9738 40.0627L99.1935 40.0627C107.384 40.0627 111.952 49.5228 106.859 55.9374L63.7076 110.284Z"
-      fill="url(#supabase__paint1_linear)"
-      fill-opacity="0.2"
-    />
-    <path
-      d="M45.317 2.07103C48.1765 -1.53037 53.9745 0.442937 54.0434 5.041L54.4849 72.2922H9.83113C1.64038 72.2922 -2.92775 62.8321 2.1655 56.4175L45.317 2.07103Z"
-      fill="#3ECF8E"
-    />
-    <defs>
-      <linearGradient
-        id="supabase__paint0_linear"
-        x1="53.9738"
-        y1="54.974"
-        x2="94.1635"
-        y2="71.8295"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stop-color="#249361" />
-        <stop offset="1" stop-color="#3ECF8E" />
-      </linearGradient>
-      <linearGradient
-        id="supabase__paint1_linear"
-        x1="36.1558"
-        y1="30.578"
-        x2="54.4844"
-        y2="65.0806"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop />
-        <stop offset="1" stop-opacity="0" />
-      </linearGradient>
-    </defs>
-  </svg>
-);
-
-export { Supabase };
+export default function Supabase() {
+  return (
+    <svg viewBox="0 0 128 128">
+      <defs>
+        <linearGradient
+          id="a"
+          x1="53.974"
+          x2="94.163"
+          y1="54.974"
+          y2="71.829"
+          gradientTransform="translate(29.387 60.096) scale(1.1436)"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset="0" stop-color="#249361"></stop>
+          <stop offset="1" stop-color="#3ecf8e"></stop>
+        </linearGradient>
+        <linearGradient
+          id="b"
+          x1="36.156"
+          x2="54.484"
+          y1="30.578"
+          y2="65.081"
+          gradientTransform="translate(29.387 60.096) scale(1.1436)"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset="0"></stop>
+          <stop offset="1" stop-opacity="0"></stop>
+        </linearGradient>
+      </defs>
+      <path
+        fill="url(#a)"
+        d="M102.24 186.21c-3.267 4.117-9.904 1.862-9.977-3.397l-1.156-76.906h51.715c9.365 0 14.587 10.817 8.763 18.149z"
+        transform="translate(-27.722 -60.338)"
+      ></path>
+      <path
+        fill="url(#b)"
+        fill-opacity=".2"
+        d="M102.24 186.21c-3.267 4.117-9.904 1.862-9.977-3.397l-1.156-76.906h51.715c9.365 0 14.587 10.817 8.763 18.149z"
+        transform="translate(-27.722 -60.338)"
+      ></path>
+      <path
+        fill="#3ecf8e"
+        d="M53.484 2.128c3.267-4.117 9.905-1.862 9.977 3.396l.508 76.907H12.902c-9.365 0-14.587-10.817-8.764-18.149z"
+      ></path>
+    </svg>
+  );
+}

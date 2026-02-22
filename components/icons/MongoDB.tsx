@@ -1,8 +1,6 @@
-import { SVGProps } from "react";
-
-export default function MongoDB(props: SVGProps<SVGSVGElement>) {
+export default function MongoDB() {
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <svg viewBox="0 0 24 24" fill="currentColor">
       <path
         fill="#47A248"
         d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A73.49 73.49 0 0 1 11.91 24h.481c.114-1.032.284-2.056.51-3.07.417-.296 5.352-3.92 4.292-11.375z"
