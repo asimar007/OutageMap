@@ -146,7 +146,7 @@ function SummaryCard({
   accent: string;
 }) {
   return (
-    <div className="group relative overflow-hidden rounded-2xl border border-border/60 bg-card/60 p-5 backdrop-blur-sm transition-all duration-300 hover:border-border hover:bg-card/80">
+    <div className="group relative overflow-hidden rounded-2xl border border-border/60 bg-card/60 p-4 sm:p-5 backdrop-blur-sm transition-all duration-300 hover:border-border hover:bg-card/80">
       {/* Accent line */}
       <div className={cn("absolute inset-x-0 top-0 h-px", accent)} />
       <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
@@ -155,7 +155,7 @@ function SummaryCard({
       {value === undefined ? (
         <Skeleton className="mt-3 h-8 w-12 rounded-md" />
       ) : (
-        <p className="mt-2 font-mono text-3xl font-light tabular-nums tracking-tight text-foreground">
+        <p className="mt-2 font-mono text-2xl font-light tabular-nums tracking-tight text-foreground sm:text-3xl">
           {value}
         </p>
       )}
@@ -195,9 +195,9 @@ export function LandingPage() {
       <header className="relative overflow-hidden border-b border-border/40">
         {/* Gradient wash */}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-primary/[0.04] via-transparent to-transparent" />
-        <div className="pointer-events-none absolute -top-24 left-1/2 h-48 w-[600px] -translate-x-1/2 rounded-full bg-primary/[0.06] blur-3xl" />
+        <div className="pointer-events-none absolute -top-24 left-1/2 h-48 w-[300px] sm:w-[600px] -translate-x-1/2 rounded-full bg-primary/[0.06] blur-3xl" />
 
-        <div className="relative mx-auto flex max-w-6xl items-center justify-between px-6 py-10">
+        <div className="relative mx-auto flex max-w-6xl flex-col gap-4 px-4 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6 sm:py-10">
           <div className="flex items-center gap-4">
             {/* Logo mark */}
             <div className="flex size-10 items-center justify-center rounded-xl bg-foreground text-background">
@@ -213,12 +213,12 @@ export function LandingPage() {
             </div>
           </div>
           <div className="flex items-center gap-3">
-            <div className="relative">
+            <div className="relative flex-1 sm:flex-none">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-3.5 text-muted-foreground/50" />
               <Input
                 type="search"
                 placeholder="Search services..."
-                className="h-9 w-48 rounded-xl border-border/50 bg-card/80 pl-9 font-mono text-xs placeholder:text-muted-foreground/40 focus-visible:w-64 focus-visible:border-primary/30 focus-visible:ring-primary/20 transition-all duration-300"
+                className="h-9 w-full rounded-xl border-border/50 bg-card/80 pl-9 font-mono text-xs placeholder:text-muted-foreground/40 focus-visible:border-primary/30 focus-visible:ring-primary/20 transition-all duration-300 sm:w-48 sm:focus-visible:w-64"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
@@ -228,9 +228,9 @@ export function LandingPage() {
         </div>
       </header>
 
-      <main className="mx-auto max-w-6xl px-6 py-10">
+      <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-10">
         {/* ── Summary Row ── */}
-        <div className="mb-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
+        <div className="mb-6 grid grid-cols-2 gap-3 sm:mb-10 sm:gap-4 sm:grid-cols-4">
           <SummaryCard
             label="Operational"
             value={summary?.operational}
@@ -267,7 +267,7 @@ export function LandingPage() {
                   {/* Hover accent */}
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/[0.02] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-                  <CardContent className="relative flex flex-col gap-4 p-5">
+                  <CardContent className="relative flex flex-col gap-3 p-4 sm:gap-4 sm:p-5">
                     <div className="flex items-start justify-between">
                       <ServiceIcon iconName={service.icon} />
                       <ArrowUpRight className="size-3.5 text-muted-foreground/30 transition-all duration-300 group-hover:text-primary/60 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
