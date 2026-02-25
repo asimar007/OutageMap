@@ -255,49 +255,71 @@ export function LandingPage() {
 
         {/* ── Services Grid ── */}
         <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {filtered.map((service) => (
-            <li key={service.name}>
-              <a
-                href={service.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block"
-              >
-                <Card className="relative overflow-hidden rounded-2xl border-border/50 bg-card/50 backdrop-blur-sm transition-all duration-300 hover:border-border hover:bg-card/80 hover:shadow-xl hover:shadow-primary/[0.03]">
-                  {/* Hover accent */}
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/[0.02] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          {(() => {
+            const priority: Record<string, number> = {
+              outage: 1,
+              degraded: 2,
+              maintenance: 3,
+              operational: 4,
+              loading: 5,
+            };
 
-                  <CardContent className="relative flex flex-col gap-3 p-4 sm:gap-4 sm:p-5">
-                    <div className="flex items-start justify-between">
-                      <ServiceIcon iconName={service.icon} />
-                      <ArrowUpRight className="size-3.5 text-muted-foreground/30 transition-all duration-300 group-hover:text-primary/60 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                    </div>
+            const sortedServices = [...filtered].sort((a, b) => {
+              const statusA = statusByKey
+                ? (statusByKey[getServiceKey(a)] ?? "operational")
+                : "loading";
+              const statusB = statusByKey
+                ? (statusByKey[getServiceKey(b)] ?? "operational")
+                : "loading";
 
-                    <div className="mt-1">
-                      <h3 className="text-sm font-medium tracking-tight text-foreground transition-colors group-hover:text-primary">
-                        {service.name}
-                      </h3>
-                      <p className="mt-0.5 font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground/60">
-                        {service.category}
-                      </p>
-                    </div>
+              return priority[statusA] - priority[statusB];
+            });
 
-                    <div className="pt-1">
-                      {statusByKey ? (
-                        <StatusBadge
-                          status={
-                            statusByKey[getServiceKey(service)] ?? "operational"
-                          }
-                        />
-                      ) : (
-                        <Skeleton className="h-5 w-24 rounded-md" />
-                      )}
-                    </div>
-                  </CardContent>
-                </Card>
-              </a>
-            </li>
-          ))}
+            return sortedServices.map((service) => (
+              <li key={service.name}>
+                <a
+                  href={service.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block"
+                >
+                  <Card className="relative overflow-hidden rounded-2xl border-border/50 bg-card/50 backdrop-blur-sm transition-all duration-300 hover:border-border hover:bg-card/80 hover:shadow-xl hover:shadow-primary/[0.03]">
+                    {/* Hover accent */}
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/[0.02] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+                    <CardContent className="relative flex flex-col gap-3 p-4 sm:gap-4 sm:p-5">
+                      <div className="flex items-start justify-between">
+                        <ServiceIcon iconName={service.icon} />
+                        <ArrowUpRight className="size-3.5 text-muted-foreground/30 transition-all duration-300 group-hover:text-primary/60 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      </div>
+
+                      <div className="mt-1">
+                        <h3 className="text-sm font-medium tracking-tight text-foreground transition-colors group-hover:text-primary">
+                          {service.name}
+                        </h3>
+                        <p className="mt-0.5 font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground/60">
+                          {service.category}
+                        </p>
+                      </div>
+
+                      <div className="pt-1">
+                        {statusByKey ? (
+                          <StatusBadge
+                            status={
+                              statusByKey[getServiceKey(service)] ??
+                              "operational"
+                            }
+                          />
+                        ) : (
+                          <Skeleton className="h-5 w-24 rounded-md" />
+                        )}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </a>
+              </li>
+            ));
+          })()}
         </ul>
       </main>
 
