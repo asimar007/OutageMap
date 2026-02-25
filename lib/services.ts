@@ -34,6 +34,7 @@ import Mailgun from "@/components/icons/Mailgun";
 import Datadog from "@/components/icons/Datadog";
 import Sentry from "@/components/icons/Sentry";
 import Groq from "@/components/icons/Groq";
+import Reddit from "@/components/icons/Reddit";
 
 export type ServiceStatus =
   | "operational"
@@ -271,6 +272,14 @@ export const services: Service[] = [
     category: "Communication",
     url: "https://status.twilio.com/",
     icon: Twilio,
+  },
+  {
+    name: "Reddit",
+    category: "Communication",
+    url: "https://www.redditstatus.com/",
+    icon: Reddit,
+    statusApiUrl: "https://www.redditstatus.com/api/v2/summary.json",
+    statusApiType: "atlassian_summary",
   },
   // CI/CD
   {
