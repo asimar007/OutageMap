@@ -192,12 +192,12 @@ export function LandingPage() {
   return (
     <div className="min-h-screen text-foreground">
       {/* ── Hero ── */}
-      <header className="relative overflow-hidden border-b border-border/40">
+      <header className="sticky top-0 z-50 overflow-hidden border-b border-border/40 bg-background/80 backdrop-blur-md">
         {/* Gradient wash */}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-primary/[0.04] via-transparent to-transparent" />
         <div className="pointer-events-none absolute -top-24 left-1/2 h-48 w-[300px] sm:w-[600px] -translate-x-1/2 rounded-full bg-primary/[0.06] blur-3xl" />
 
-        <div className="relative mx-auto flex max-w-6xl flex-col gap-4 px-4 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6 sm:py-10">
+        <div className="relative mx-auto flex max-w-6xl flex-col gap-4 px-4 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6 sm:py-6">
           <div className="flex items-center gap-4">
             {/* Logo mark */}
             <div className="flex size-10 items-center justify-center rounded-xl bg-foreground text-background">
