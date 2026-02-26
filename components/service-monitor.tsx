@@ -2,26 +2,8 @@
 
 import React from "react";
 import { useTheme } from "next-themes";
-import {
-  Search,
-  Cloud,
-  Code,
-  Package,
-  Box,
-  Globe,
-  MessageCircle,
-  Video,
-  Phone,
-  Workflow,
-  Database,
-  Mail,
-  BarChart2,
-  Sun,
-  Moon,
-  Activity,
-  ArrowUpRight,
-  type LucideIcon,
-} from "lucide-react";
+import { Search, Sun, Moon, ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -31,31 +13,15 @@ import { cn } from "@/lib/utils";
 import { getServiceKey, type ServiceStatus } from "@/lib/services";
 import { useLandingPage } from "../hooks/use-service-monitor";
 
-const ICON_MAP: Record<string, LucideIcon> = {
-  cloud: Cloud,
-  code: Code,
-  package: Package,
-  box: Box,
-  globe: Globe,
-  "message-circle": MessageCircle,
-  video: Video,
-  phone: Phone,
-  workflow: Workflow,
-  database: Database,
-  mail: Mail,
-  "bar-chart-2": BarChart2,
-};
-
 /* ------------------------------------------------------------------ */
 /*  Service Icon                                                       */
 /* ------------------------------------------------------------------ */
 function ServiceIcon({
   iconName,
 }: {
-  iconName: string | React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  iconName: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 }) {
-  const Icon =
-    typeof iconName === "string" ? (ICON_MAP[iconName] ?? Box) : iconName;
+  const Icon = iconName;
   return (
     <div className="relative flex size-11 items-center justify-center text-primary/70 transition-all duration-300 group-hover:text-primary">
       <Icon className="size-10" strokeWidth={1.5} />
@@ -200,9 +166,7 @@ export function LandingPage() {
         <div className="relative mx-auto flex max-w-6xl flex-col gap-4 px-4 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6 sm:py-6">
           <div className="flex items-center gap-4">
             {/* Logo mark */}
-            <div className="flex size-10 items-center justify-center rounded-xl bg-foreground text-background">
-              <Activity className="size-5" strokeWidth={2} />
-            </div>
+            <Image src="/icon.png" alt="Outage Map" width={40} height={40} className="rounded-xl" />
             <div>
               <h1 className="font-mono text-lg font-semibold tracking-tight">
                 Outage Map

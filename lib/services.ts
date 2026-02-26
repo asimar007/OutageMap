@@ -81,18 +81,6 @@ export function getServiceKey(service: Service): string {
   return `${service.name}|${service.category}`;
 }
 
-export const CATEGORIES: ServiceCategory[] = [
-  "AI",
-  "Cloud",
-  "Developer Tools",
-  "CDN & DNS",
-  "CI/CD",
-  "Communication",
-  "Databases",
-  "Email",
-  "Analytics",
-];
-
 export const services: Service[] = [
   // AI
   {
