@@ -68,7 +68,7 @@ export type Service = {
   name: string;
   category: ServiceCategory;
   url: string;
-  icon: string | React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 
   status?: Exclude<ServiceStatus, "fetch_failed">;
 
