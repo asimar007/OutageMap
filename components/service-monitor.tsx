@@ -166,7 +166,13 @@ export function LandingPage() {
         <div className="relative mx-auto flex max-w-6xl flex-col gap-4 px-4 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6 sm:py-6">
           <div className="flex items-center gap-4">
             {/* Logo mark */}
-            <Image src="/icon.png" alt="Outage Map" width={40} height={40} className="rounded-xl" />
+            <Image
+              src="/icon.png"
+              alt="Outage Map"
+              width={40}
+              height={40}
+              className="rounded-xl"
+            />
             <div>
               <h1 className="font-mono text-lg font-semibold tracking-tight">
                 Outage Map
@@ -289,8 +295,8 @@ export function LandingPage() {
 
       {/* ── Footer ── */}
       <footer className="border-t border-border/30 py-8">
-        <p className="text-center font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground/40">
-          Status Dashboard
+        <p className="text-center font-mono text-[10px] tracking-[0.25em] text-muted-foreground">
+          Built with ❤️ by Asim
         </p>
       </footer>
     </div>
