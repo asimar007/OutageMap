@@ -38,6 +38,10 @@ import Reddit from "@/components/icons/Reddit";
 import ImageKit from "@/components/icons/ImageKit";
 import Jira from "@/components/icons/Jira";
 import Loom from "@/components/icons/Loom";
+import Stripe from "@/components/icons/Stripe";
+import Notion from "@/components/icons/Notion";
+import Grafana from "@/components/icons/Grafana";
+import Hubspot from "@/components/icons/Hubspot";
 
 export type ServiceStatus =
   | "operational"
@@ -55,7 +59,8 @@ export type ServiceCategory =
   | "Communication"
   | "Databases"
   | "Email"
-  | "Analytics";
+  | "Analytics"
+  | "Payments";
 
 export type StatusApiType =
   | "statuspage"
@@ -212,7 +217,16 @@ export const services: Service[] = [
     category: "Developer Tools",
     url: "https://jira-software.status.atlassian.com/",
     icon: Jira,
-    statusApiUrl: "https://jira-software.status.atlassian.com/api/v2/status.json",
+    statusApiUrl:
+      "https://jira-software.status.atlassian.com/api/v2/status.json",
+    statusApiType: "statuspage",
+  },
+  {
+    name: "Notion",
+    category: "Developer Tools",
+    url: "https://www.notion-status.com/",
+    icon: Notion,
+    statusApiUrl: "https://www.notion-status.com/api/v2/status.json",
     statusApiType: "statuspage",
   },
   {
@@ -296,6 +310,14 @@ export const services: Service[] = [
     statusApiUrl: "https://www.redditstatus.com/api/v2/summary.json",
     statusApiType: "atlassian_summary",
   },
+  {
+    name: "HubSpot",
+    category: "Communication",
+    url: "https://status.hubspot.com/",
+    icon: Hubspot,
+    statusApiUrl: "https://status.hubspot.com/api/v2/status.json",
+    statusApiType: "statuspage",
+  },
   // CI/CD
   {
     name: "CircleCI",
@@ -355,5 +377,22 @@ export const services: Service[] = [
     category: "Analytics",
     url: "https://status.sentry.io/",
     icon: Sentry,
+  },
+  {
+    name: "Grafana",
+    category: "Analytics",
+    url: "https://status.grafana.com/",
+    icon: Grafana,
+    statusApiUrl: "https://status.grafana.com/api/v2/status.json",
+    statusApiType: "statuspage",
+  },
+  // Payments
+  {
+    name: "Stripe",
+    category: "Payments",
+    url: "https://status.stripe.com/",
+    icon: Stripe,
+    statusApiUrl: "https://www.stripestatus.com/api/v2/status.json",
+    statusApiType: "statuspage",
   },
 ];
