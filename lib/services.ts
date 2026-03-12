@@ -35,6 +35,9 @@ import Datadog from "@/components/icons/Datadog";
 import Sentry from "@/components/icons/Sentry";
 import Groq from "@/components/icons/Groq";
 import Reddit from "@/components/icons/Reddit";
+import ImageKit from "@/components/icons/ImageKit";
+import Jira from "@/components/icons/Jira";
+import Loom from "@/components/icons/Loom";
 
 export type ServiceStatus =
   | "operational"
@@ -205,6 +208,14 @@ export const services: Service[] = [
     icon: Figma,
   },
   {
+    name: "Jira",
+    category: "Developer Tools",
+    url: "https://jira-software.status.atlassian.com/",
+    icon: Jira,
+    statusApiUrl: "https://jira-software.status.atlassian.com/api/v2/status.json",
+    statusApiType: "statuspage",
+  },
+  {
     name: "Heroku",
     category: "Cloud",
     url: "https://status.heroku.com/",
@@ -234,6 +245,14 @@ export const services: Service[] = [
     url: "https://status.cloudinary.com/",
     icon: Cloudinary,
   },
+  {
+    name: "ImageKit",
+    category: "CDN & DNS",
+    url: "https://imagekitio.statuspage.io/",
+    icon: ImageKit,
+    statusApiUrl: "https://imagekitio.statuspage.io/api/v2/status.json",
+    statusApiType: "statuspage",
+  },
   // Communication
   {
     name: "Slack",
@@ -254,6 +273,14 @@ export const services: Service[] = [
     category: "Communication",
     url: "https://status.zoom.us/",
     icon: Zoom,
+  },
+  {
+    name: "Loom",
+    category: "Communication",
+    url: "https://loom.status.atlassian.com/",
+    icon: Loom,
+    statusApiUrl: "https://loom.status.atlassian.com/api/v2/status.json",
+    statusApiType: "statuspage",
   },
   {
     name: "Twilio",
