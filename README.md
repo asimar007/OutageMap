@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Outage Map
 
-## Getting Started
+<p  align="center">
 
-First, run the development server:
+<img  src="./public/Meta.png"  alt="Outage Map Preview" />
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+</p>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> Curated directory of official status pages and real-time operational monitoring for major cloud and SaaS services.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Outage Map** is a live status dashboard built to help you track the health of various cloud infrastructure and SaaS dependencies in real-time.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+<p  align="center">
 
-## Learn More
+<img  src="./public/preview.png"  alt="Outage Map Meta" />
 
-To learn more about Next.js, take a look at the following resources:
+</p>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ✨ Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Real-Time Monitoring**: Easily track the real-time operational status (Operational, Degraded, Outage, Maintenance) of major services.
 
-## Deploy on Vercel
+- **Search & Filter**: Quickly find full statuses for specific cloud or SaaS services using the built-in search functionality.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Modern UI**: Polished, responsive, and visually appealing interface featuring a glassmorphic design and subtle animations.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Dark/Light Mode**: Full theme support using `next-themes`.
+
+- **Summary Dashboard**: High-level overview to see counts of operational, degraded, outage, and maintenance statuses at a glance.
+
+## 🌍 URL
+
+Visit the live app at: [https://outagemap.vercel.app](https://outagemap.vercel.app)
+
+## 🤝 Contributing
+
+Contributions are welcome! If you'd like to add a new service to monitor, or improve the application, please open an issue or submit a pull request.
+
+---
+
+<p  align="center">Built with ❤️ by Asim</p>
