@@ -1,156 +1,19 @@
 "use client";
 
-import React from "react";
-import { useTheme } from "next-themes";
-import { Search, Sun, Moon, ArrowUpRight } from "lucide-react";
+import { Search, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
-import { cn } from "@/lib/utils";
-import { getServiceKey, type ServiceStatus } from "@/lib/services";
-import { useLandingPage } from "../hooks/use-service-monitor";
+import { getServiceKey } from "@/lib/services";
+import { useLandingPage } from "@/hooks/use-service-monitor";
 
-/* ------------------------------------------------------------------ */
-/*  Service Icon                                                       */
-/* ------------------------------------------------------------------ */
-function ServiceIcon({
-  iconName,
-}: {
-  iconName: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-}) {
-  const Icon = iconName;
-  return (
-    <div className="relative flex size-11 items-center justify-center text-primary/70 transition-all duration-300 group-hover:text-primary">
-      <Icon className="size-10" strokeWidth={1.5} />
-    </div>
-  );
-}
+// Extracted Components
+import { ServiceIcon } from "@/components/service-icon";
+import { StatusBadge } from "@/components/status-badge";
+import { SummaryCard } from "@/components/summary-card";
+import { ThemeToggle } from "@/components/theme-toggle";
 
-/* ------------------------------------------------------------------ */
-/*  Status Badge                                                       */
-/* ------------------------------------------------------------------ */
-type DisplayStatus = ServiceStatus | "loading";
-
-function StatusBadge({ status }: { status: DisplayStatus }) {
-  const getColor = () => {
-    switch (status) {
-      case "operational":
-        return "bg-emerald-400";
-      case "degraded":
-        return "bg-amber-400";
-      case "outage":
-        return "bg-red-400";
-      case "maintenance":
-        return "bg-sky-400";
-      default:
-        return "bg-muted-foreground/40";
-    }
-  };
-
-  const getBorderColor = () => {
-    switch (status) {
-      case "operational":
-        return "border-emerald-400/30 text-emerald-700 dark:text-emerald-300";
-      case "degraded":
-        return "border-amber-400/30 text-amber-700 dark:text-amber-300";
-      case "outage":
-        return "border-red-400/30 text-red-700 dark:text-red-300";
-      case "maintenance":
-        return "border-sky-400/30 text-sky-700 dark:text-sky-300";
-      default:
-        return "border-border text-muted-foreground";
-    }
-  };
-
-  const label =
-    status === "loading"
-      ? "Loading..."
-      : status.charAt(0).toUpperCase() + status.slice(1);
-
-  return (
-    <Badge
-      variant="outline"
-      className={cn(
-        "inline-flex items-center gap-1.5 rounded-md px-2 py-0.5 font-mono text-[10px] font-medium uppercase tracking-widest",
-        getBorderColor(),
-      )}
-    >
-      <span className="relative flex h-1.5 w-1.5">
-        {status === "operational" && (
-          <span
-            className={cn(
-              "absolute inline-flex h-full w-full rounded-full opacity-60 animate-ping",
-              getColor(),
-            )}
-          />
-        )}
-        <span
-          className={cn(
-            "relative inline-flex h-1.5 w-1.5 rounded-full",
-            getColor(),
-          )}
-        />
-      </span>
-      {label}
-    </Badge>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  Summary Stat Card                                                  */
-/* ------------------------------------------------------------------ */
-function SummaryCard({
-  label,
-  value,
-  accent,
-}: {
-  label: string;
-  value: number | undefined;
-  accent: string;
-}) {
-  return (
-    <div className="group relative overflow-hidden rounded-2xl border border-border/60 bg-card/60 p-4 sm:p-5 backdrop-blur-sm transition-all duration-300 hover:border-border hover:bg-card/80">
-      {/* Accent line */}
-      <div className={cn("absolute inset-x-0 top-0 h-px", accent)} />
-      <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-        {label}
-      </p>
-      {value === undefined ? (
-        <Skeleton className="mt-3 h-8 w-12 rounded-md" />
-      ) : (
-        <p className="mt-2 font-mono text-2xl font-light tabular-nums tracking-tight text-foreground sm:text-3xl">
-          {value}
-        </p>
-      )}
-    </div>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  Theme Toggle                                                       */
-/* ------------------------------------------------------------------ */
-function ThemeToggle() {
-  const { theme, setTheme } = useTheme();
-
-  return (
-    <Button
-      variant="ghost"
-      size="icon"
-      className="rounded-xl border border-border/50 text-muted-foreground transition-all hover:border-border hover:text-foreground"
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-    >
-      <Sun className="size-4 dark:hidden" />
-      <Moon className="size-4 hidden dark:block" />
-    </Button>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  Main Page                                                          */
-/* ------------------------------------------------------------------ */
 export function LandingPage() {
   const { search, setSearch, statusByKey, filtered, summary } =
     useLandingPage();
@@ -160,8 +23,8 @@ export function LandingPage() {
       {/* ── Hero ── */}
       <header className="sticky top-0 z-50 overflow-hidden border-b border-border/40 bg-background/80 backdrop-blur-md">
         {/* Gradient wash */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-primary/[0.04] via-transparent to-transparent" />
-        <div className="pointer-events-none absolute -top-24 left-1/2 h-48 w-[300px] sm:w-[600px] -translate-x-1/2 rounded-full bg-primary/[0.06] blur-3xl" />
+        <div className="pointer-events-none absolute inset-0 bg-linear-to-b from-primary/4 via-transparent to-transparent" />
+        <div className="pointer-events-none absolute -top-24 left-1/2 h-48 w-[300px] sm:w-[600px] -translate-x-1/2 rounded-full bg-primary/6 blur-3xl" />
 
         <div className="relative mx-auto flex max-w-6xl flex-col gap-4 px-4 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6 sm:py-6">
           <div className="flex items-center gap-4">
@@ -204,22 +67,22 @@ export function LandingPage() {
           <SummaryCard
             label="Operational"
             value={summary?.operational}
-            accent="bg-gradient-to-r from-transparent via-emerald-500/60 to-transparent"
+            accent="bg-linear-to-r from-transparent via-emerald-500/60 to-transparent"
           />
           <SummaryCard
             label="Degraded"
             value={summary?.degraded}
-            accent="bg-gradient-to-r from-transparent via-amber-500/60 to-transparent"
+            accent="bg-linear-to-r from-transparent via-amber-500/60 to-transparent"
           />
           <SummaryCard
             label="Outages"
             value={summary?.outage}
-            accent="bg-gradient-to-r from-transparent via-red-500/60 to-transparent"
+            accent="bg-linear-to-r from-transparent via-red-500/60 to-transparent"
           />
           <SummaryCard
             label="Maintenance"
             value={summary?.maintenance}
-            accent="bg-gradient-to-r from-transparent via-sky-500/60 to-transparent"
+            accent="bg-linear-to-r from-transparent via-sky-500/60 to-transparent"
           />
         </div>
 
@@ -253,9 +116,9 @@ export function LandingPage() {
                   rel="noopener noreferrer"
                   className="group block"
                 >
-                  <Card className="relative overflow-hidden rounded-2xl border-border/50 bg-card/50 backdrop-blur-sm transition-all duration-300 hover:border-border hover:bg-card/80 hover:shadow-xl hover:shadow-primary/[0.03]">
+                  <Card className="relative overflow-hidden rounded-2xl border-border/50 bg-card/50 backdrop-blur-sm transition-all duration-300 hover:border-border hover:bg-card/80 hover:shadow-xl hover:shadow-primary/3">
                     {/* Hover accent */}
-                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/[0.02] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                    <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-primary/2 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
                     <CardContent className="relative flex flex-col gap-3 p-4 sm:gap-4 sm:p-5">
                       <div className="flex items-start justify-between">
