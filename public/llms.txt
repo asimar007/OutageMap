@@ -1,0 +1,29 @@
+# Outage Map
+
+> Real-time monitoring across all major cloud and SaaS services.
+
+## Overview
+Outage Map is a curated directory and live dashboard for monitoring the operational status of critical cloud infrastructure, SaaS platforms, and developer tools. It provides a unified view to check if services are experiencing outages, degraded performance, or undergoing maintenance.
+
+## Features
+- **Real-Time Status**: Aggregates the current operational status of various services.
+- **Categorized View**: Services are organized by their current status (Outage, Degraded, Maintenance, Operational).
+- **Search & Filter**: Quickly find specific services using the built-in search functionality.
+- **Direct Links**: Provides direct links to the official status pages of each service for detailed incident reports.
+
+## Technology Stack
+- **Frontend Framework**: Next.js (App Router)
+- **UI Library**: React
+- **Styling**: Tailwind CSS v4
+- **Components**: shadcn/ui (Radix UI)
+- **Icons**: Lucide React
+- **Hosting**: Vercel
+
+## Key Components
+The dashboard is built primarily around the `LandingPage` component, which orchestrates the layout including the search bar, theme toggle, summary statistics cards, and the main grid of service status indicators. Statuses are visually distinguished using a custom `StatusBadge` component that employs pulse animations and color coding (Emerald for operational, Amber for degraded, Red for outage, Sky for maintenance).
+
+## Usage
+Users can visit the dashboard to get an immediate, at-a-glance view of the health of the internet's core services. If a service shows as anything other than "Operational", clicking on that service's card will navigate the user directly to the official status page for that specific provider to read the full incident report.
+
+## Maintainer
+Built by Asim.
