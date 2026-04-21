@@ -42,6 +42,7 @@ import Stripe from "@/components/icons/Stripe";
 import Notion from "@/components/icons/Notion";
 import Grafana from "@/components/icons/Grafana";
 import Hubspot from "@/components/icons/Hubspot";
+import Udemy from "@/components/icons/Udemy";
 
 export type ServiceStatus =
   | "operational"
@@ -60,7 +61,8 @@ export type ServiceCategory =
   | "Databases"
   | "Email"
   | "Analytics"
-  | "Payments";
+  | "Payments"
+  | "Education";
 
 export type StatusApiType =
   | "statuspage"
@@ -384,6 +386,15 @@ export const services: Service[] = [
     url: "https://status.grafana.com/",
     icon: Grafana,
     statusApiUrl: "https://status.grafana.com/api/v2/status.json",
+    statusApiType: "statuspage",
+  },
+  // Education
+  {
+    name: "Udemy",
+    category: "Education",
+    url: "https://status.udemy.com/",
+    icon: Udemy,
+    statusApiUrl: "https://status.udemy.com/api/v2/status.json",
     statusApiType: "statuspage",
   },
   // Payments
