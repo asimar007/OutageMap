@@ -110,6 +110,8 @@ export const services: Service[] = [
     category: "AI",
     url: "https://status.deepseek.com/",
     icon: DeepSeek,
+    statusApiUrl: "https://status.deepseek.com/feed.rss",
+    statusApiType: "rss",
   },
   { name: "Groq", category: "AI", url: "https://groqstatus.com/", icon: Groq },
   {
