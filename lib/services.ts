@@ -43,6 +43,7 @@ import Notion from "@/components/icons/Notion";
 import Grafana from "@/components/icons/Grafana";
 import Hubspot from "@/components/icons/Hubspot";
 import Udemy from "@/components/icons/Udemy";
+import Kimi from "@/components/icons/Kimi";
 
 export type ServiceStatus =
   | "operational"
@@ -112,6 +113,14 @@ export const services: Service[] = [
     icon: DeepSeek,
     statusApiUrl: "https://status.deepseek.com/feed.rss",
     statusApiType: "rss",
+  },
+  {
+    name: "Kimi",
+    category: "AI",
+    url: "https://status.moonshot.cn/",
+    icon: Kimi,
+    statusApiUrl: "https://status.moonshot.cn/api/v2/status.json",
+    statusApiType: "statuspage",
   },
   { name: "Groq", category: "AI", url: "https://groqstatus.com/", icon: Groq },
   {
